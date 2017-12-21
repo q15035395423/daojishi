@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>
+		距离圣诞节还有：
+		<span></span>分
+		<span></span>秒
+	</div>
+</body>
+</html>
+<script>
+	// let date = new Date('12/22/2017 14:00:00');
+	// let date = new Date(2017,11,20,9,30,15);   /*月份要减一*/
+	// date.getMonth(); //0-11  设置减一，获取加一
+	// date.getDate();  // 号
+	// date.getDay(); //星期
+	// date.getTime(); //1970年到当前用的时间(毫秒)
+	// date.getFullYear(); //年
+	// let date = new Date();
+	// date.setFullYear(2018);
+	// date.setMonth(11);
+	// date.setDate(25);
+	// console.dir(date);
+// 	let spans = document.querySelectorAll('span');
+// 	let date = new Date(2017,11,25,12,30,0);
+// 	move();
+// 	setInterval(move,1000);
+
+// 	function move(){
+// 		let arr = [];
+// 		let now = new Date();
+// 		let time = Math.floor((date.getTime() - now.getTime())/1000);
+// 		let d = Math.floor(time/60/60/24);
+// 		arr.push(d);
+// 		time = time%(60*60*24);
+// 		let h = Math.floor(time/(60*60));
+// 		arr.push(h);
+// 		time %= (60*60);
+// 		let m = Math.floor(time/60);
+// 		arr.push(m);
+// 		let s = Math.floor(time % 60);
+// 		arr.push(s);
+// 		spans.forEach((element,index)=>{
+// 			element.innerText = arr[index];
+// 		})
+// }
+
+	let date = new Date();
+	date.setMinutes(date.getMinutes()+10);
+	let spans = document.querySelectorAll('div>span');
+	move();
+	setInterval(move,1000)
+	function move(){
+	let arr = [];
+	let now = new Date();
+	let time = Math.floor((date.getTime() - now.getTime())/1000); 
+	// let d = Math.floor(time/60/60/24);
+	// arr.push(d);
+	// time = time%(60*60*24);
+	// let h = Math.floor(time/(60*60));
+	// time = time%(60*60);
+	// arr.push(h);
+	let m = Math.floor(time/60);
+	arr.push(m);
+	let s = Math.floor(time%60);
+	arr.push(s);
+	spans.forEach((element,index)=>{
+		element.innerText = arr[index];
+	})
+	}
+
+</script>
